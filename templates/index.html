@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Talisms</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+</head>
+
+<body>
+    <div class="bottom-left">
+        <form method="POST" id="car-form">
+            <span id="toggle-btn" style="cursor: pointer;">&lt;3 S</span>
+            <input type="text" name="car_question" id="car-input" placeholder="what’s the name of Talia’s first car?" style="display: none;" />
+        </form>
+    </div>
+    
+    
+    <script>
+        function toggleInput() {
+            const input = document.getElementById("car-input");
+            input.style.display = input.style.display === "inline-block" ? "none" : "inline-block";
+            if (input.style.display === "inline-block") {
+                input.focus();
+            }
+        }
+    </script>
+    
+
+    <div class="section">
+        <div class="main-text">"{{ phrase }}"</div>
+    </div>
+
+    <div class="section description-text">
+        <p>Everyone needs a Talia in their life.</p>
+        <p>Thus Talisms was born to bring a Talia to the world.</p>
+        <p>
+            For the days when you need to hear “no rest for the wicked” when you're needing a boost,
+            or a “I'm just a girl” for everything else. 
+        </p>
+        <p>
+            Talisms are not advice — they’re emotional reflexes. They’re psychological flashbangs. They’re the soundtrack to your mental
+            unravelling, with commentary like “that was traumatic” and “tell me about it” echoing between your neurons. 
+            She is the moment, the narrator, the glitch in the matrix and the glue holding the us together.
+        </p>
+        <p>
+            This is a shrine. A sanctuary. A digital juice box for moments that makea us go “THAT’S WHAT I’M SAYING.”
+            Because when life is unfair, and you're hanging on by a thread, there’s nothing quite like a
+            cheeky grin followed by “the game's the game”.
+
+            You need it all, even the "ew".
+        </p>
+    </div>
+    
+    
+    <script>
+        const toggleBtn = document.getElementById("toggle-btn");
+        const carInput = document.getElementById("car-input");
+    
+        toggleBtn.addEventListener("click", function (event) {
+            event.preventDefault(); // prevent form submission by <span> click
+            if (carInput.style.display === "none" || carInput.style.display === "") {
+                carInput.style.display = "inline-block";
+                carInput.focus();
+            } else {
+                carInput.style.display = "none";
+            }
+        });
+    </script>
+    
+</body>
+</html>

@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Talisms – Motivation</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+</head>
+<body>
+    <!-- Top-right heart (optional) -->
+    <div class="bottom-left">
+        <span>&lt;3 S</span>
+    </div>
+
+    <!-- Quote in center -->
+    <div class="main-text">
+        {{ quote }}
+    </div>
+
+    <!-- Envelope popup overlay -->
+    <div id="overlay" class="overlay" onclick="hideEnvelope()">
+        <img src="{{ url_for('static', filename='envelope.gif') }}" class="center-envelope" onclick="showLetter(event)" alt="Envelope">
+    </div>
+
+    <!-- Actual letter -->
+    <div id="letter-popup" class="letter-popup-container" style="display: none;" onclick="hideLetter()">
+        <div class="letter-content" onclick="event.stopPropagation();">
+            <div class="letter-text">{{ birthday | safe }}</div>
+        </div>
+    </div>
+
+
+    <!-- Scroll section -->
+    <div class="scroll-section">
+        <p>For the hard days when the imposter syndrome hits or you become a little ball of stress and you need to hear the truth.</p>
+    </div>
+
+    <script>
+        function hideEnvelope() {
+            document.getElementById("overlay").style.display = "none";
+        }
+
+        function showLetter(event) {
+            event.stopPropagation();
+            hideEnvelope();
+            document.getElementById("letter-popup").style.display = "flex";
+        }
+
+        function hideLetter() {
+            document.getElementById("letter-popup").style.display = "none";
+        }
+    </script>
+</body>
+</html>

@@ -1,0 +1,188 @@
+
+@import url('https://fonts.googleapis.com/css2?family=Playfair+Display&display=swap');
+
+/* Enable vertical snapping */
+html {
+    height: 100%;
+    overflow-y: scroll;
+    scroll-snap-type: y mandatory;
+    scroll-behavior: smooth;
+}
+
+body {
+    margin: 0;
+    padding: 0;
+    background-color: #ffcce0;
+    color: #333; /* darker text */
+    font-family: 'Playfair Display', serif;
+    font-size: 3rem;
+    text-align: center;
+    overflow-x: hidden;
+}
+
+/* Each section fills the screen and snaps */
+.section {
+    height: 100vh;
+    scroll-snap-align: start;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    padding: 2rem;
+    box-sizing: border-box;
+    text-align: center;
+}
+
+.section:nth-child(odd) {
+    background-color: #ffcce0;
+}
+
+.section:nth-child(even) {
+    background-color: #ffcce0;
+    color: #333;
+}
+
+.scroll-section {
+    min-height: 100vh;
+    padding: 4rem 2rem;
+    background-color: #ffcce0;
+    color: #333;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    font-size: 1.3rem;
+    text-align: center;
+}
+
+.scroll-section p {
+    max-width: 700px;
+    margin-bottom: 1.5rem;
+    line-height: 1.7;
+}
+
+
+.main-text {
+    height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 4rem;
+    box-sizing: border-box;
+    text-align: center;
+}
+
+.description-text {
+    font-size: 1.3rem;
+    line-height: 1.5;
+    max-width: 600px;
+    margin: 0 auto;
+    color: #444;
+    opacity: 0.85;
+}
+
+
+/* Top-right input + heart */
+.bottom-left {
+    position: fixed;
+    bottom: 1.5rem;
+    left: 1.5rem;
+    display: flex;
+    gap: 0.5rem;
+    align-items: center;
+    z-index: 10;
+}
+
+.bottom-left button,
+.bottom-left span {
+    background: none;
+    border: none;
+    color: #333;
+    font-size: 1.2rem;
+    font-weight: bold;
+    cursor: pointer;
+}
+
+.bottom-left input[type="text"] {
+    padding: 0.3rem 0.5rem;
+    border-radius: 6px;
+    border: 1px solid #ccc;
+    background: white;
+    color: #333;
+    outline: none;
+    font-size: 1rem;
+    width: 100%;
+    max-width: 500px;
+
+}
+
+.bottom-left input[type="text"]::placeholder {
+    color: #999;
+    font-size: 1rem;
+}
+
+
+
+
+/* Big envelope overlay */
+.overlay {
+    position: fixed;
+    top: 0; left: 0;
+    width: 100vw; height: 100vh;
+    background-color: rgba(255, 204, 224, 0.8);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    z-index: 1000;
+}
+.center-envelope {
+    width: 350px;
+    cursor: pointer;
+    z-index: 1001;
+    transition: transform 0.2s;
+}
+
+.center-envelope:hover {
+    transform: scale(1.05);
+}
+
+.letter-popup-container {
+    position: fixed;
+    top: 0; left: 0;
+    width: 100vw; height: 100vh;
+    background-color: rgba(0, 0, 0, 0.5);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    z-index: 1002;
+    padding: 2rem;
+    box-sizing: border-box;
+}
+
+
+
+.letter-content {
+    background-color: #fffefc;
+    color: #333;
+    padding: 2rem;
+    border-radius: 12px;
+    max-height: 85vh;
+    overflow-y: auto;
+    max-width: 600px;
+    width: 90%;
+    font-size: 1.1rem;
+    font-family: 'Georgia', serif;
+    line-height: 1.5;
+    box-shadow: 0 4px 20px rgba(0,0,0,0.3);
+    box-sizing: border-box;
+}
+
+.letter-text {
+    text-align: left;
+    white-space: normal;
+    word-wrap: break-word;
+    overflow-wrap: break-word;
+}
+
+
+
